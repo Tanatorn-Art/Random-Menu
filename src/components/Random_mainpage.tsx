@@ -1,12 +1,14 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Shuffle, Play, Pause } from 'lucide-react';
+import menuData from '../config/menu.json';
 
 interface MenuItem {
-  id: number;
   name: string;
+  description: string;
   category: string;
-  price: number;
-  image: string;
+  id?: number;
+  price?: number;
+  image?: string;
 }
 
 interface RandomMenuAppProps {
@@ -21,72 +23,39 @@ const RandomMenuApp = ({ onSpinComplete }: RandomMenuAppProps) => {
   const buttonRef = useRef<HTMLButtonElement>(null);
   const animationRef = useRef<NodeJS.Timeout | null>(null);
 
-  // Sample config data (in real app, this would be loaded from config.json)
-  const sampleConfig = {
-    "menus": [
-      {
-        "id": 1,
-        "name": "ข้าวผัดกุ้ง",
-        "category": "อาหารจานเดียว",
-        "price": 80,
-        "image": "🍤"
-      },
-      {
-        "id": 2,
-        "name": "ผัดไทย",
-        "category": "อาหารจานเดียว",
-        "price": 60,
-        "image": "🍜"
-      },
-      {
-        "id": 3,
-        "name": "ส้มตำไทย",
-        "category": "อาหารอีสาน",
-        "price": 45,
-        "image": "🥗"
-      },
-      {
-        "id": 4,
-        "name": "แกงเขียวหวานไก่",
-        "category": "อาหารแกง",
-        "price": 90,
-        "image": "🍛"
-      },
-      {
-        "id": 5,
-        "name": "ต้มยำกุ้ง",
-        "category": "อาหารแกง",
-        "price": 120,
-        "image": "🍲"
-      },
-      {
-        "id": 6,
-        "name": "มาม่าทรงเครื่อง",
-        "category": "อาหารจานเดียว",
-        "price": 55,
-        "image": "🍝"
-      },
-      {
-        "id": 7,
-        "name": "ข้าวหมูแดง",
-        "category": "อาหารจานเดียว",
-        "price": 50,
-        "image": "🍖"
-      },
-      {
-        "id": 8,
-        "name": "ไก่ย่าง",
-        "category": "อาหารปิ้งย่าง",
-        "price": 180,
-        "image": "🍗"
-      }
-    ]
+  // Map emoji based on category
+  const getEmojiForCategory = (category: string): string => {
+    const emojiMap: Record<string, string> = {
+      'เส้น': '🍜',
+      'ต้ม': '🍲',
+      'ส้มตำ': '🥗',
+      'ข้าว': '🍚',
+      'ผัด': '🍳',
+      'แกง': '🥘',
+      'ยำ': '🥙',
+      'ปิ้งย่าง': '🍖',
+      'ทอด': '🍤',
+      'นึ่ง': '🐟',
+      'ของหวาน': '🍧',
+      'เครื่องดื่ม': '🧃'
+    };
+    return emojiMap[category] || '🍽️';
+  };
+
+  // Process and prepare menu data
+  const processMenuData = () => {
+    return menuData.menuItems.map((item, index) => ({
+      ...item,
+      id: index + 1,
+      price: Math.floor(Math.random() * 150) + 30, // Random price between 30-180
+      image: getEmojiForCategory(item.category)
+    }));
   };
 
   useEffect(() => {
-    // Load menu from config (simulated)
-    setMenuItems(sampleConfig.menus);
-    setSelectedMenu(sampleConfig.menus[0]);
+    const processedMenu = processMenuData();
+    setMenuItems(processedMenu);
+    setSelectedMenu(processedMenu[0]);
   }, []);
 
   const startSpin = () => {
@@ -126,6 +95,9 @@ const RandomMenuApp = ({ onSpinComplete }: RandomMenuAppProps) => {
           setSelectedMenu(menuItems[finalIndex]);
           setIsSpinning(false);
 
+          if (onSpinComplete) {
+            onSpinComplete();
+          }
         }
       };
 
@@ -158,9 +130,15 @@ const RandomMenuApp = ({ onSpinComplete }: RandomMenuAppProps) => {
             <div ref={scrollRef} className="relative z-10 text-center">
               {selectedMenu && (
                 <div className={`transition-all duration-300 ${isSpinning ? 'blur-sm scale-110' : 'scale-100'}`}>
-                  <div className="text-6xl mb-4">{selectedMenu.image}</div>
+                  <div className="text-6xl mb-4">{selectedMenu.image || '🍽️'}</div>
                   <h2 className="text-2xl font-bold text-white mb-2">{selectedMenu.name}</h2>
-                  <p className="text-gray-300 mb-2">{selectedMenu.category}</p>
+                  <p className="text-gray-300 mb-1">{selectedMenu.category}</p>
+                  {/* <p className="text-gray-400 text-sm">{selectedMenu.description}</p>
+                  {selectedMenu.price && (
+                    <p className="text-yellow-400 font-semibold mt-2">
+                      ฿{selectedMenu.price.toLocaleString()}
+                    </p>
+                  )} */}
                 </div>
               )}
             </div>
@@ -190,7 +168,7 @@ const RandomMenuApp = ({ onSpinComplete }: RandomMenuAppProps) => {
             </button>
 
 
-            {isSpinning && (
+            {/* {isSpinning && (
               <button
                 onClick={stopSpin}
                 className="flex items-center gap-2 px-6 py-4 rounded-full font-bold text-lg bg-red-500 hover:bg-red-600 text-white transition-all shadow-lg hover:shadow-xl transform hover:scale-105 active:scale-95"
@@ -198,7 +176,7 @@ const RandomMenuApp = ({ onSpinComplete }: RandomMenuAppProps) => {
                 <Pause className="w-5 h-5" />
                 หยุด
               </button>
-            )}
+            )} */}
           </div>
         </div>
 
