@@ -4,7 +4,7 @@
 
 import dynamic from 'next/dynamic';
 
-const Random_mainpage = dynamic(() => import('@/components/Random_mainpage'), { ssr: false });
+const Random_mainpage = dynamic(() => import('@/components/Random_way_page'), { ssr: false });
 
 export default function Home() {
   return (

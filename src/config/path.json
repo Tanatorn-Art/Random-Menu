@@ -1,0 +1,28 @@
+{
+  "pathItems": [
+    {
+      "id": 1,
+      "name": "#",
+      "path": "/random-food",
+      "desc": "สุ่มเมนูอาหาร"
+    },
+    {
+      "id": 2,
+      "name": "way",
+      "path": "/random-way",
+      "desc": "สุ่มเส้นทาง"
+    },
+    {
+      "id": 3,
+      "name": "yes-or-no",
+      "path": "/random-yes-or-no",
+      "desc": "ใช่ หรือ ไม่"
+    },
+    {
+      "id": 4,
+      "name": "emoji",
+      "path": "/random-emoji",
+      "desc": "สุ่มอีโมจิ"
+    }
+  ]
+}

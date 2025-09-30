@@ -1,0 +1,20 @@
+{
+  "wayItems": [
+    {
+      "id": 1,
+      "way": "/img/way_img/left.png"
+    },
+    {
+      "id": 2,
+      "way": "/img/way_img/right.png"
+    },
+    {
+      "id": 3,
+      "way": "/img/way_img/top.png"
+    },
+    {
+      "id": 4,
+      "way": "/img/way_img/buttom.png"
+    }
+  ]
+}
