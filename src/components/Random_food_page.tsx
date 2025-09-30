@@ -126,7 +126,7 @@ const RandomMenuApp = ({ onSpinComplete }: RandomMenuAppProps) => {
 
 
   return (
-    <div className="mt-[-20px] min-h-screen bg-gradient-to-br from-green-200 via-orange-100 to-yellow-200 p-4 relative overflow-hidden">
+    <div className=" min-h-screen bg-gradient-to-br from-green-200 via-orange-100 to-yellow-200 p-4 relative overflow-hidden">
       {/* Background Effects */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-green-300/30 via-transparent to-transparent"></div>
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,_var(--tw-gradient-stops))] from-orange-300/30 via-transparent to-transparent"></div>
@@ -134,8 +134,8 @@ const RandomMenuApp = ({ onSpinComplete }: RandomMenuAppProps) => {
       {/* Floating Food Emojis */}
       <div className="absolute top-15  left-10 text-green-300 text-2xl animate-bounce">🍕</div>
       {/* <div className="absolute top-20 right-20 text-orange-300 text-xl animate-pulse">🍔</div> */}
-      <div className="absolute bottom-20 left-20 text-yellow-300 text-2xl animate-bounce delay-1000">🍜</div>
-      <div className="absolute bottom-10 right-10 text-green-300 text-xl animate-pulse delay-500">🥗</div>
+      {/* <div className="absolute bottom-20 left-20 text-yellow-300 text-2xl animate-bounce delay-1000">🍜</div>
+      <div className="absolute bottom-10 right-10 text-green-300 text-xl animate-pulse delay-500">🥗</div> */}
       <div className="max-w-md mx-auto bg-gradient-to-br from-white to-green-50 rounded-3xl shadow-2xl overflow-hidden mt-20 relative border-4 border-green-300 z-10">
         {/* Header */}
         <div className="bg-gradient-to-r from-green-400 via-orange-400 to-yellow-400 p-6 text-center relative overflow-hidden">

@@ -101,7 +101,7 @@ const RandomMenuApp = ({ onSpinComplete }: RandomWayAppProps) => {
   };
 
   return (
-    <div className="mt-[-20px] min-h-screen bg-gradient-to-br from-pink-200 via-yellow-100 to-orange-200 p-4 relative overflow-hidden">
+    <div className=" min-h-screen bg-gradient-to-br from-pink-200 via-yellow-100 to-orange-200 p-4 relative overflow-hidden">
       {/* Background Effects */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-pink-300/30 via-transparent to-transparent"></div>
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,_var(--tw-gradient-stops))] from-yellow-300/30 via-transparent to-transparent"></div>
@@ -109,8 +109,8 @@ const RandomMenuApp = ({ onSpinComplete }: RandomWayAppProps) => {
       {/* Floating Hearts */}
       <div className="absolute top-15 left-10 text-pink-300 text-2xl animate-bounce">💖</div>
       {/* <div className="absolute top-20 right-20 text-yellow-300 text-xl animate-pulse">✨</div> */}
-      <div className="absolute bottom-20 left-20 text-purple-300 text-2xl animate-bounce delay-1000">💜</div>
-      <div className="absolute bottom-10 right-10 text-pink-300 text-xl animate-pulse delay-500">🌸</div>
+      {/* <div className="absolute bottom-20 left-20 text-purple-300 text-2xl animate-bounce delay-1000">💜</div>
+      <div className="absolute bottom-10 right-10 text-pink-300 text-xl animate-pulse delay-500">🌸</div> */}
       <div className="max-w-md mx-auto bg-gradient-to-br from-white to-pink-50 rounded-3xl shadow-2xl overflow-hidden mt-20 relative border-4 border-pink-300 z-10">
         {/* Header */}
         <div className="bg-gradient-to-r from-pink-400 via-purple-400 to-indigo-400 p-6 text-center relative overflow-hidden">
