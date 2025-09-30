@@ -126,14 +126,14 @@ const RandomMenuApp = ({ onSpinComplete }: RandomMenuAppProps) => {
 
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-green-200 via-orange-100 to-yellow-200 p-4 relative overflow-hidden">
+    <div className="mt-[-20px] min-h-screen bg-gradient-to-br from-green-200 via-orange-100 to-yellow-200 p-4 relative overflow-hidden">
       {/* Background Effects */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-green-300/30 via-transparent to-transparent"></div>
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,_var(--tw-gradient-stops))] from-orange-300/30 via-transparent to-transparent"></div>
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,_var(--tw-gradient-stops))] from-yellow-300/20 via-transparent to-transparent"></div>
       {/* Floating Food Emojis */}
-      <div className="absolute top-10 left-10 text-green-300 text-2xl animate-bounce">🍕</div>
-      <div className="absolute top-20 right-20 text-orange-300 text-xl animate-pulse">🍔</div>
+      <div className="absolute top-15  left-10 text-green-300 text-2xl animate-bounce">🍕</div>
+      {/* <div className="absolute top-20 right-20 text-orange-300 text-xl animate-pulse">🍔</div> */}
       <div className="absolute bottom-20 left-20 text-yellow-300 text-2xl animate-bounce delay-1000">🍜</div>
       <div className="absolute bottom-10 right-10 text-green-300 text-xl animate-pulse delay-500">🥗</div>
       <div className="max-w-md mx-auto bg-gradient-to-br from-white to-green-50 rounded-3xl shadow-2xl overflow-hidden mt-20 relative border-4 border-green-300 z-10">
@@ -156,7 +156,7 @@ const RandomMenuApp = ({ onSpinComplete }: RandomMenuAppProps) => {
               {selectedMenu && (
                 <div className={`transition-all duration-300 ${isSpinning ? 'blur-sm scale-110' : 'scale-100'}`}>
                   <div className="text-8xl mb-4 mt-4 drop-shadow-lg">{selectedMenu.image || '🍽️'}</div>
-                  <h2 className="text-4xl font-bold text-green-800 mb-2">{selectedMenu.name}</h2>
+                  <h2 className="text-2xl font-bold text-green-800 mb-2">{selectedMenu.name}</h2>
                   <p className="text-orange-600 mb-1 font-medium">{selectedMenu.category}</p>
                   {/* <p className="text-gray-400 text-sm">{selectedMenu.description}</p>
                   {selectedMenu.price && (
